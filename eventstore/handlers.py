@@ -4,7 +4,6 @@ import logging as log
 from . import db
 
 def get_events(event_type, since, count):
-
   events = db.get_events(event_type, since)
   return events
 
