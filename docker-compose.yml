@@ -1,1 +1,18 @@
 # @TODO
+version: "3.4"
+
+services:
+
+  ms-dynamo:
+    container_name: ms-dynamo
+    image: amazon/dynamodb-local
+    ports:
+      - 8248:8000
+   
+  ms-events-store:
+    container_name: ms-events-store
+    build: 
+      context: .
+    volumes: 
+      - .:/app    
+  
