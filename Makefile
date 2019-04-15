@@ -4,39 +4,30 @@ service:=ms-event-store
 
 .PHONY: start
 start: 
-	# implement
+	docker-compose up -d
 
 .PHONY: stop
 stop: 
-	# implement
+	docker-compose down
 
 .PHONY: restart
-restart:
-	# implement
+restart: stop start
 
 .PHONY: ps
 ps: 
-	# imlement
-
-.PHONY: build
-build:
-	#implement
-
-.PHONY: clean
-clean: 
-	#implement
+	docker-compose ps
 
 .PHONY: logs
 logs:
-	# implement
+	docker-compose logs -f
 
 .PHONY: logs-db
 logs-db:
-	# implement
+	docker-compose logs -f ms-events-db
 
 .PHONY: logs-app
 logs-app:
-	# implement
+	docker-compose logs -f ms-event-store
 
 # requires: brew install awscli
 .PHONY: list-tables
@@ -51,6 +42,13 @@ docs:
 .PHONY: docs-serve
 docs-serve:
 	redoc-cli serve -w -ssr -p 9999 specs/api.yml
+
+.PHONY: build
+build:
+	docker-compose build --no-cache
+
+.PHONY: clean
+clean: stop build start
 
 .PHONY: install-package-in-container
 install-package-in-container:
