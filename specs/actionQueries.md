@@ -12,6 +12,6 @@ get events:
         itemId
         eventType
 
-
     output:
+        POST /events
         
