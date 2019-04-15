@@ -1,0 +1,9 @@
+# Open API Spec documentation: https://swagger.io/docs/specification/about/
+openapi: "3.0.0"
+servers:
+  - url: https://api.example.com/v1 
+info:
+  title: Event Store
+  version: 1.0.0
+paths:
+  # implement
